@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_movie_dp/features/movies_list/movies_list.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -31,11 +33,8 @@ class _MainPageState extends State<MainPage> {
 
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Movies',
-      style: optionStyle,
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    MoviesListPage(),
     Text(
       'Index 1: Favorite',
       style: optionStyle,
