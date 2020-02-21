@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_movie_dp/features/movies_list/movies_list.dart';
+import 'package:http/http.dart' as http;
 
+import 'features/movies_list/data/models/movie_model.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -48,6 +52,10 @@ class _MainPageState extends State<MainPage> {
       style: optionStyle,
     ),
   ];
+  @override
+  void initState()  {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
