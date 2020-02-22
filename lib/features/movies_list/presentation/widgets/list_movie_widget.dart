@@ -57,6 +57,7 @@ class ListMovies extends StatelessWidget {
         children: <Widget>[
           Text(
             movie.title,
+            maxLines: 1,
             style: TextStyle(
                 fontSize: 16.0,
                 color: Colors.black,

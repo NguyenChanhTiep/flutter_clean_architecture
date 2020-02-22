@@ -7,7 +7,7 @@ import 'features/movies_list/data/repositories/movies_repository_impl.dart';
 import 'features/movies_list/domain/repositories/movies_repository.dart';
 import 'features/movies_list/domain/usecases/get_movies_popular.dart';
 import 'features/movies_list/domain/usecases/get_popular_actors.dart';
-import 'features/movies_list/widgets/bloc/movies_bloc.dart';
+import 'features/movies_list/presentation/bloc/movies_bloc.dart';
 
 final sl = GetIt.instance;
 
