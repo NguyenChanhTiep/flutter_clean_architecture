@@ -1,15 +1,13 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
 import 'package:flutter_movie_dp/features/movies_list/movies_list.dart';
-import 'package:http/http.dart' as http;
+import 'injection_container.dart' as di;
 
-import 'features/movies_list/data/models/movie_model.dart';
-void main() => runApp(MyApp());
+void main() async {
+  await di.init();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,7 +34,7 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     MoviesListPage(),
     Text(
@@ -53,7 +51,7 @@ class _MainPageState extends State<MainPage> {
     ),
   ];
   @override
-  void initState()  {
+  void initState() {
     super.initState();
   }
 
@@ -65,8 +63,7 @@ class _MainPageState extends State<MainPage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.favorite),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -75,16 +72,20 @@ class _MainPageState extends State<MainPage> {
         children: _widgetOptions,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){ },
+        onPressed: () {},
         child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.local_movies), title: Text('Movies')),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), title: Text('Favorite')),
-          BottomNavigationBarItem(icon: Icon(Icons.search), title: Text('Search')),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), title: Text('Setting')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.local_movies), title: Text('Movies')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), title: Text('Favorite')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search), title: Text('Search')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), title: Text('Setting')),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
