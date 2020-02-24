@@ -34,9 +34,7 @@ class MoviesRemoteDataSourceImpl extends MoviesRemoteDataSource {
           .toList();
       return State.success(movies);
     } else {
-      final failure = ServerFailure(
-          message: json.decode(response.body)['status_message'],
-          code: response.statusCode);
+      final failure = ServerFailure.fromJson(json.decode(response.body));
       return State.error(failure);
     }
   }

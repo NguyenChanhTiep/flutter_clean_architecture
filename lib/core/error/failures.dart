@@ -19,6 +19,11 @@ class ServerFailure extends Failure {
 
   final int code;
 
+  factory ServerFailure.fromJson(Map<String, dynamic> json) {
+    return ServerFailure(
+        message: json["status_message"], code: json["status_code"]);
+  }
+
   @override
   String toString() {
     return 'Failure with code: $code, message: $message';
