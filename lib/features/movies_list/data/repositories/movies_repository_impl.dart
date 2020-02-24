@@ -1,6 +1,5 @@
-import 'package:dartz/dartz.dart';
-import 'package:flutter_movie_dp/core/error/exception.dart';
 import 'package:flutter_movie_dp/core/error/failures.dart';
+import 'package:flutter_movie_dp/core/state.dart';
 import 'package:flutter_movie_dp/features/movies_list/data/datasources/movies_local_data_source.dart';
 import 'package:flutter_movie_dp/features/movies_list/data/datasources/movies_remote_data_source.dart';
 import 'package:flutter_movie_dp/features/movies_list/domain/entities/movie.dart';
@@ -18,22 +17,12 @@ class MoviesRepositoryImpl extends MoviesRepository {
   });
 
   @override
-  Future<Either<Failure, List<People>>> getPopularActors() async {
-    try {
-      final result = await remoteDataSource.getPopularActors();
-      return Right(result);
-    } on ServerException catch (exception) {
-      return Left(ServerFailure(message: exception.message));
-    }
-  }
+  Future<State<List<Movie>, Failure>> getPopularMovies() =>
+      remoteDataSource.getPopularMovies();
 
   @override
-  Future<Either<Failure, List<Movie>>> getPopularMovies() async {
-    try {
-      final result = await remoteDataSource.getPopularMovies();
-      return Right(result);
-    } on ServerException catch (exception) {
-      return Left(ServerFailure(message: exception.message));
-    }
+  Future<State<List<People>, Failure>> getPopularActors() {
+    // TODO: implement getPopularActors
+    return null;
   }
 }

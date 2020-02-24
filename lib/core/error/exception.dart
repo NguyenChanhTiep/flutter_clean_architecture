@@ -7,7 +7,8 @@ class ServerException implements Exception {
   ServerException({@required this.message, @required this.code});
 
   factory ServerException.fromJson(Map<String, dynamic> json) {
-    return ServerException(message: json["status_message"], code: json["status_code"]);
+    return ServerException(
+        message: json["status_message"], code: json["status_code"]);
   }
 
   @override

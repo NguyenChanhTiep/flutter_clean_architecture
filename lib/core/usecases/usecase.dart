@@ -1,12 +1,8 @@
-import 'package:dartz/dartz.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter_movie_dp/core/error/failures.dart';
+import 'package:flutter_movie_dp/core/state.dart';
 
 abstract class UseCase<Type, Params> {
-  Future<Either<Failure, Type>> call(Params params);
+  Future<State<Type, Failure>> call(Params params);
 }
 
-class NoParams extends Equatable {
-  @override
-  List<Object> get props => null;
-}
+class NoParams {}

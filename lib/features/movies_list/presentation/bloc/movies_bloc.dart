@@ -23,8 +23,10 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   Stream<MoviesState> mapEventToState(MoviesEvent event) async* {
     if (event is GetPopularMoviesEvent) {
       final result = await getPopularMovies(NoParams());
-      yield result.fold((failure) => ErrorLoadMovies(message: failure.message),
-          (movies) => LoadedMovies(movies: movies));
-    } else if (event is GetPopularActorsEvent) {}
+      yield result.fold(
+        (movies) => LoadedMovies(movies: movies),
+        (error) => ErrorLoadMovies(message: error.message),
+      );
+    }
   }
 }

@@ -30,6 +30,10 @@ class _MoviesListPageSate extends State<MoviesListPage> {
                 return LoadingWidget();
               } else if (state is LoadedMovies) {
                 return ListMovies(movies: state.movies);
+              } else if (state is ErrorLoadMovies) {
+                return Center(
+                  child: Text('Error ${state.message}'),
+                );
               }
               return Container();
             },

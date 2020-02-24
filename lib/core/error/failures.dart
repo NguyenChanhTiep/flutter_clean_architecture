@@ -1,24 +1,30 @@
 import 'package:meta/meta.dart';
 
-class Failure {
-  String message;
-
-  Failure({@required this.message});
+abstract class Failure {
+  const Failure(String message) : this.message = message;
+  final String message;
 
   @override
   String toString() {
-    return "Failure: ${message ?? "unknow"}";
+    return 'Failure: $message';
   }
 }
 
+// General failures
 class ServerFailure extends Failure {
-  String message;
+  ServerFailure({
+    @required String message,
+    @required this.code,
+  }) : super(message);
 
-  ServerFailure({@required this.message}): super(message: message);
+  final int code;
+
+  @override
+  String toString() {
+    return 'Failure with code: $code, message: $message';
+  }
 }
 
 class CacheFailure extends Failure {
-  String message;
-
-  CacheFailure({@required this.message}): super(message: message);
+  CacheFailure({@required String message}) : super(message);
 }
