@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter_movie_dp/core/state.dart';
-import 'package:flutter_movie_dp/features/movies_list/data/models/movie_model.dart';
-import 'package:flutter_movie_dp/features/movies_list/domain/entities/movie.dart';
-import 'package:flutter_movie_dp/features/movies_list/domain/entities/people.dart';
+import 'package:flutter_movie_dp/data/models/movie_model.dart';
+import 'package:flutter_movie_dp/domain/entities/movie.dart';
+import 'package:flutter_movie_dp/domain/entities/people.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 

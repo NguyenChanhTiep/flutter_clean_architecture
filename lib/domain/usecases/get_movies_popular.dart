@@ -1,8 +1,8 @@
 import 'package:flutter_movie_dp/core/error/failures.dart';
 import 'package:flutter_movie_dp/core/state.dart';
 import 'package:flutter_movie_dp/core/usecases/usecase.dart';
-import 'package:flutter_movie_dp/features/movies_list/domain/entities/movie.dart';
-import 'package:flutter_movie_dp/features/movies_list/domain/repositories/movies_repository.dart';
+import 'package:flutter_movie_dp/domain/entities/movie.dart';
+import 'package:flutter_movie_dp/domain/repositories/movies_repository.dart';
 
 class GetPopularMovies extends UseCase<List<Movie>, NoParams> {
   final MoviesRepository repository;
