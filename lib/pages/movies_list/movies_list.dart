@@ -35,7 +35,7 @@ class _MoviesListPageSate extends State<MoviesListPage> {
                   child: Text('Error ${state.message}'),
                 );
               }
-              return Container();
+              return LoadingWidget();
             },
           ),
         ],
