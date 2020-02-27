@@ -7,20 +7,16 @@ import 'requests/base_request.dart';
 
 void runTestHttp() {}
 
-typedef ConvertJsonToObject<T> = T Function(Map<String, dynamic> json);
+typedef Mapper<T> = T Function(Map<String, dynamic> json);
 
 class ApiService {
-  Dio _dio;
-  final _baseUrl = 'https://api.themoviedb.org/3';
+  final Dio _dio;
 
-  ApiService() {
-    _dio = new Dio(BaseOptions(baseUrl: _baseUrl));
-    _dio.interceptors.add(CustomInterceptors());
-  }
+  ApiService({@required Dio dio}): this._dio = dio;
 
   Future<State<T, Failure>> request<T>({
     @required BaseRequest request,
-    @required ConvertJsonToObject<T> convertJsonToObject,
+    @required Mapper<T> mapper,
   }) async {
     Future<Response> response;
     switch (request.method) {
@@ -37,32 +33,11 @@ class ApiService {
     try {
       final result = await response;
       final Map<String, dynamic> json = result.data;
-      final T object = convertJsonToObject(json);
+      final T object = mapper(json);
       return State.success(object);
     } on DioError catch (e) {
       final failure = ServerFailure.fromJson(e.response.data);
       return State.error(failure);
     }
-  }
-}
-
-class CustomInterceptors extends InterceptorsWrapper {
-  @override
-  Future onRequest(RequestOptions options) {
-    print("REQUEST[${options?.method}] => PATH: ${options?.path}");
-    return super.onRequest(options);
-  }
-
-  @override
-  Future onResponse(Response response) {
-    print(
-        "RESPONSE[${response?.statusCode}] => PATH: ${response?.request?.path}");
-    return super.onResponse(response);
-  }
-
-  @override
-  Future onError(DioError err) {
-    print("ERROR[${err?.response?.statusCode}] => PATH: ${err?.request?.path}");
-    return super.onError(err);
   }
 }

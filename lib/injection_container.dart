@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 
@@ -8,6 +9,8 @@ import 'package:flutter_movie_dp/domain/repositories/movies_repository.dart';
 import 'package:flutter_movie_dp/domain/usecases/get_movies_popular.dart';
 import 'package:flutter_movie_dp/domain/usecases/get_popular_actors.dart';
 import 'package:flutter_movie_dp/pages/movies_list/bloc/movies_bloc.dart';
+
+import 'data/datasources/api_service/api_base.dart';
 
 final sl = GetIt.instance;
 
@@ -34,7 +37,7 @@ Future<void> init() async {
 
   // Data sources
   sl.registerLazySingleton<MoviesRemoteDataSource>(
-    () => MoviesRemoteDataSourceImpl(client: sl()),
+    () => MoviesRemoteDataSourceImpl(apiService: sl()),
   );
 
   sl.registerLazySingleton<MoviesLocalDataSource>(
@@ -45,4 +48,8 @@ Future<void> init() async {
   sl.registerLazySingleton(
     () => http.Client(),
   );
+
+  // API Service
+  sl.registerLazySingleton(() => ApiService(dio: sl()));
+  sl.registerLazySingleton(() => Dio(BaseOptions(baseUrl: 'https://api.themoviedb.org/3')));
 }

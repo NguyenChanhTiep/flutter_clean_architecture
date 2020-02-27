@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_dp/pages/application/app_localizations.dart';
+import 'package:flutter_movie_dp/pages/application/bloc/localizations_bloc.dart';
 
 class SettingPage extends StatelessWidget {
   @override
@@ -15,7 +17,8 @@ class SettingPage extends StatelessWidget {
             ),
           ),
           new DropdownButton<Localize>(
-            value: ConvertLocalize.localize(AppLocalizations.of(context).locale),
+            value:
+                ConvertLocalize.localize(AppLocalizations.of(context).locale),
             items: Localize.values.map((Localize localize) {
               return new DropdownMenuItem<Localize>(
                 value: localize,
@@ -23,8 +26,10 @@ class SettingPage extends StatelessWidget {
               );
             }).toList(),
             onChanged: (localize) {
-              // TODO: Edit later
-              AppLocalizations.of(context).load(localize.toLocale());
+              Future.delayed(Duration(milliseconds: 500), () {
+                BlocProvider.of<LocalizationsBloc>(context)
+                    .add(ChangeLocalizationEvent(locale: localize.toLocale()));
+              });
             },
           )
         ],
