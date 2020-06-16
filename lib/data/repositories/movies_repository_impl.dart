@@ -1,10 +1,10 @@
-import 'package:flutter_movie_dp/core/error/failures.dart';
-import 'package:flutter_movie_dp/core/state.dart';
-import 'package:flutter_movie_dp/data/datasources/movies_local_data_source.dart';
-import 'package:flutter_movie_dp/data/datasources/movies_remote_data_source.dart';
-import 'package:flutter_movie_dp/domain/entities/movie.dart';
-import 'package:flutter_movie_dp/domain/entities/people.dart';
-import 'package:flutter_movie_dp/domain/repositories/movies_repository.dart';
+import 'package:flutter_clean_architecture/core/error/failures.dart';
+import 'package:flutter_clean_architecture/core/state.dart';
+import 'package:flutter_clean_architecture/data/datasources/movies_local_data_source.dart';
+import 'package:flutter_clean_architecture/data/datasources/movies_remote_data_source.dart';
+import 'package:flutter_clean_architecture/domain/entities/movie.dart';
+import 'package:flutter_clean_architecture/domain/entities/people.dart';
+import 'package:flutter_clean_architecture/domain/repositories/movies_repository.dart';
 import 'package:meta/meta.dart';
 
 class MoviesRepositoryImpl extends MoviesRepository {

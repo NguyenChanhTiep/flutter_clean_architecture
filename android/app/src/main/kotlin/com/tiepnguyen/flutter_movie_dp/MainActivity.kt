@@ -1,4 +1,4 @@
-package com.tiepnguyen.flutter_movie_dp
+package com.tiepnguyen.flutter_clean_architecture
 
 import android.os.Bundle
 

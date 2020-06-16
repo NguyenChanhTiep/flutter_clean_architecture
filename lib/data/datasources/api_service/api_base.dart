@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_movie_dp/core/error/failures.dart';
-import 'package:flutter_movie_dp/core/state.dart';
+import 'package:flutter_clean_architecture/core/error/failures.dart';
+import 'package:flutter_clean_architecture/core/state.dart';
 import 'package:meta/meta.dart';
 
 import 'requests/base_request.dart';

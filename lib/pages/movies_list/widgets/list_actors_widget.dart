@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_dp/domain/entities/people.dart';
+import 'package:flutter_clean_architecture/domain/entities/people.dart';
 
 class ListActors extends StatelessWidget {
   final List<People> actors;

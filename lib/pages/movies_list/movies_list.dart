@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_dp/pages/movies_list/bloc/movies_bloc.dart';
-import 'package:flutter_movie_dp/pages/movies_list/bloc/movies_event.dart';
-import 'package:flutter_movie_dp/pages/movies_list/bloc/movies_state.dart';
-import 'package:flutter_movie_dp/pages/movies_list/widgets/list_movie_widget.dart';
-import 'package:flutter_movie_dp/pages/movies_list/widgets/loading_widget.dart';
+import 'package:flutter_clean_architecture/pages/movies_list/bloc/movies_bloc.dart';
+import 'package:flutter_clean_architecture/pages/movies_list/bloc/movies_event.dart';
+import 'package:flutter_clean_architecture/pages/movies_list/bloc/movies_state.dart';
+import 'package:flutter_clean_architecture/pages/movies_list/widgets/list_movie_widget.dart';
+import 'package:flutter_clean_architecture/pages/movies_list/widgets/loading_widget.dart';
 
 import '../../injection_container.dart';
 

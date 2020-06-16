@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_dp/pages/application/app_localizations.dart';
-import 'package:flutter_movie_dp/pages/movies_list/movies_list.dart';
-import 'package:flutter_movie_dp/pages/setting/setting_page.dart';
+import 'package:flutter_clean_architecture/pages/application/app_localizations.dart';
+import 'package:flutter_clean_architecture/pages/movies_list/movies_list.dart';
+import 'package:flutter_clean_architecture/pages/setting/setting_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);

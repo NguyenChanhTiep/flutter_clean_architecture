@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_dp/domain/entities/movie.dart';
+import 'package:flutter_clean_architecture/domain/entities/movie.dart';
 
 class ListMovies extends StatelessWidget {
   final List<Movie> movies;
