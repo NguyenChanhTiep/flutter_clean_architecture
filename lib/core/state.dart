@@ -7,7 +7,7 @@ export 'error/failures.dart';
 
 class State<T, E extends Failure> {
   State._({@required T data, @required E error})
-      : assert(data != null || error != null),
+      : assert(!(data != null && error != null)),
         this._data = data,
         this._error = error;
 
@@ -23,13 +23,15 @@ class State<T, E extends Failure> {
 
   bool get hasError => _error != null;
 
+  T get data => _data;
+
+  E get error => _error;
+
   B fold<B>(B Function(T value) success, B Function(Failure failure) error) {
-    if (hasData) {
-      return success(_data);
-    } else if (hasError) {
+    if (hasError) {
       return error(_error);
     } else {
-      throw Exception('Unexpected error');
+      return success(_data);
     }
   }
 }
