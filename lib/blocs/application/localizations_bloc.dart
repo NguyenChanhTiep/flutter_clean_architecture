@@ -3,11 +3,11 @@ import 'dart:ui';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
-import 'localizations_event.dart';
-import 'localizations_state.dart';
+import 'package:flutter_clean_architecture/blocs/application/localizations_event.dart';
+import 'package:flutter_clean_architecture/blocs/application/localizations_state.dart';
 
-export 'localizations_event.dart';
-export 'localizations_state.dart';
+export 'package:flutter_clean_architecture/blocs/application/localizations_event.dart';
+export 'package:flutter_clean_architecture/blocs/application/localizations_state.dart';
 
 class LocalizationsBloc extends Bloc<LocalizationsEvent, LocalizationsState> {
   final Locale defaultLocale;
