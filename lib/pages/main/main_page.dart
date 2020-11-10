@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/pages/application/app_localizations.dart';
-import 'package:flutter_clean_architecture/pages/movies_list/movies_list.dart';
-import 'package:flutter_clean_architecture/pages/setting/setting_page.dart';
+
+import '../../core/resources/resources.dart';
+import '../../pages/movies_list/movies_list.dart';
+import '../../pages/setting/setting_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -35,10 +36,9 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    final title = AppLocalizations.of(context).translate('home');
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(AppLocalizations.of(context).home),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.favorite),
@@ -58,13 +58,21 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.local_movies), title: Text(AppLocalizations.of(context).translate('Movies'))),
+            icon: Icon(Icons.local_movies),
+            label: AppLocalizations.of(context).movies,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), title: Text(AppLocalizations.of(context).translate('Favorite'))),
+            icon: Icon(Icons.favorite),
+            label: AppLocalizations.of(context).favorite,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.search), title: Text(AppLocalizations.of(context).translate('Search'))),
+            icon: Icon(Icons.search),
+            label: AppLocalizations.of(context).search,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), title: Text(AppLocalizations.of(context).translate('Setting'))),
+            icon: Icon(Icons.settings),
+            label: AppLocalizations.of(context).setting,
+          ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
