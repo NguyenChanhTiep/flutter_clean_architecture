@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture/pages/application/app_localizations.dart';
-import 'package:flutter_clean_architecture/pages/application/bloc/localizations_bloc.dart';
+import 'package:flutter_clean_architecture/blocs/application/localizations_bloc.dart';
 
 class SettingPage extends StatelessWidget {
   @override

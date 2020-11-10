@@ -1,4 +1,4 @@
-import 'package:flutter_clean_architecture/domain/entities/movie.dart';
+import 'package:flutter_clean_architecture/data/models/movie.dart';
 import 'package:meta/meta.dart';
 
 abstract class MoviesState {}

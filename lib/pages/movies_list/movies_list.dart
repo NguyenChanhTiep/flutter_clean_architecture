@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/pages/movies_list/bloc/movies_bloc.dart';
-import 'package:flutter_clean_architecture/pages/movies_list/bloc/movies_event.dart';
-import 'package:flutter_clean_architecture/pages/movies_list/bloc/movies_state.dart';
+import 'package:flutter_clean_architecture/blocs/movies_list/movies_bloc.dart';
+import 'package:flutter_clean_architecture/blocs/movies_list/movies_event.dart';
+import 'package:flutter_clean_architecture/blocs/movies_list/movies_state.dart';
 import 'package:flutter_clean_architecture/pages/movies_list/widgets/list_movie_widget.dart';
 import 'package:flutter_clean_architecture/pages/movies_list/widgets/loading_widget.dart';
 

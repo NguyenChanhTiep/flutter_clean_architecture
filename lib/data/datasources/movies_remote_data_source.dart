@@ -1,7 +1,6 @@
 import 'package:flutter_clean_architecture/core/state.dart';
-import 'package:flutter_clean_architecture/data/models/movie_model.dart';
-import 'package:flutter_clean_architecture/domain/entities/movie.dart';
-import 'package:flutter_clean_architecture/domain/entities/people.dart';
+import 'package:flutter_clean_architecture/data/models/movie.dart';
+import 'package:flutter_clean_architecture/data/models/people.dart';
 import 'package:meta/meta.dart';
 
 import 'api_service/api_base.dart';
@@ -28,11 +27,11 @@ class MoviesRemoteDataSourceImpl extends MoviesRemoteDataSource {
   Future<State<List<Movie>, Failure>> getPopularMovies() async {
     final request =
         GetPopularMoviesRequest(apiKey: '8ec3fbf1c1b06d940e29c592421917ae');
-    final result = apiService.request<List<MovieModel>>(
+    final result = apiService.request<List<Movie>>(
         request: request,
         mapper: (json) {
           final movies = (json["results"] as List)
-              .map((json) => MovieModel.fromJson(json))
+              .map((json) => Movie.fromJson(json))
               .toList();
           return movies;
         });

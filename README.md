@@ -13,22 +13,19 @@
 
 ```
 lib/
-    data/                         <--- data layer
-        models/                      <-- Models are entities with some additional functionality added on top, serialized and deserialized to/from JSON.
-        datasources/                <-- CRUD data (Ex: Fetch data from API, fetch cached data from DB, location from device...)
+    data/                         <--- Data layer
+        models/                       <-- Models are entities with some additional functionality added on top, serialized and deserialized to/from JSON.
+        datasources/                  <-- CRUD data (Ex: Fetch data from API, fetch cached data from DB, location from device...)
         repositories/                 <-- repositories (retrieve data, heavy processing etc..)
-    domain/                       <--- domain layer (business and enterprise)
-        entities/                   <--- enterprise entities (core classes of the app)
-          user.dart                   <-- example entity
-          manager.dart                <-- example entity
-        usecases/                   <--- business processes e.g. Login, Logout, GetUser, etc..
-          login_usecase.dart          <-- example usecase extends `UseCase`
-        repositories/               <--- abstract classes that define functionality for data layer
-    pages/                          <--- presentation layer
-        page_name/                        <-- pages name folder
-          page_name.dart                  <-- page widget
-          widgets/                      <-- custom widgets
-          bloc/                        <-- BLoC, MVVM, MVP...
+
+    usecases/                     <--- Domain Layer - use cases
+
+    blocs/                        <--- UI logic layer - Blocs, MVVM, MVP
+
+    pages/                        <--- UI layer
+        page_name/                     <-- pages name folder
+          page_name.dart                   <-- page widget
+          widgets/                         <-- custom widgets
     main.dart                     <--- entry point
 
 ```

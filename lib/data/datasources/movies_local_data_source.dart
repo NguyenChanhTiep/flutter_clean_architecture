@@ -1,5 +1,5 @@
-import 'package:flutter_clean_architecture/domain/entities/movie.dart';
-import 'package:flutter_clean_architecture/domain/entities/people.dart';
+import 'package:flutter_clean_architecture/data/models/movie.dart';
+import 'package:flutter_clean_architecture/data/models/people.dart';
 
 abstract class MoviesLocalDataSource {
 

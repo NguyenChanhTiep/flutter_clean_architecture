@@ -5,10 +5,10 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_clean_architecture/data/datasources/movies_local_data_source.dart';
 import 'package:flutter_clean_architecture/data/datasources/movies_remote_data_source.dart';
 import 'package:flutter_clean_architecture/data/repositories/movies_repository_impl.dart';
-import 'package:flutter_clean_architecture/domain/repositories/movies_repository.dart';
-import 'package:flutter_clean_architecture/domain/usecases/get_movies_popular.dart';
-import 'package:flutter_clean_architecture/domain/usecases/get_popular_actors.dart';
-import 'package:flutter_clean_architecture/pages/movies_list/bloc/movies_bloc.dart';
+import 'package:flutter_clean_architecture/data/repositories/movies_repository.dart';
+import 'package:flutter_clean_architecture/usecases/get_movies_popular.dart';
+import 'package:flutter_clean_architecture/usecases/get_popular_actors.dart';
+import 'package:flutter_clean_architecture/blocs/movies_list/movies_bloc.dart';
 
 import 'data/datasources/api_service/api_base.dart';
 
