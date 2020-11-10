@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+part 'app_localizations_translate.dart';
+
 enum Localize {
   en,
   vi,
@@ -56,14 +58,12 @@ extension ConvertLocalize on Localize {
   }
 }
 
+/// AppLocalizations
 class AppLocalizations {
-  Locale _locale;
-
-  Locale get locale => _locale;
-
-  Map<String, String> _localizedStrings;
-
-  AppLocalizations();
+  AppLocalizations({
+    @required Locale locale,
+  })  : assert(locale != null),
+        _locale = locale;
 
   static AppLocalizations of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
@@ -72,13 +72,19 @@ class AppLocalizations {
   static const LocalizationsDelegate<AppLocalizations> delegate =
       _AppLocalizationsDelegate();
 
-  Future<bool> load(Locale locale) async {
+  Locale _locale;
+
+  Locale get locale => _locale;
+
+  Map<String, String> _localizedStrings = {};
+
+  Future<bool> load() async {
     String jsonString =
-        await rootBundle.loadString('lang/${locale.languageCode}.json');
+        await rootBundle.loadString('assets/lang/${locale.languageCode}.json');
     Map<String, dynamic> jsonMap = json.decode(jsonString);
-    _localizedStrings =
-        jsonMap.map((key, value) => MapEntry(key, value.toString()));
-    _locale = locale;
+    _localizedStrings = jsonMap.map((key, value) {
+      return MapEntry(key, value.toString());
+    });
     return true;
   }
 
@@ -100,8 +106,8 @@ class _AppLocalizationsDelegate
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
-    AppLocalizations localizations = AppLocalizations();
-    await localizations.load(locale);
+    AppLocalizations localizations = AppLocalizations(locale: locale);
+    await localizations.load();
     return localizations;
   }
 

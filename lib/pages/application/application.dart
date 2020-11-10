@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_clean_architecture/blocs/application/localizations_bloc.dart';
-import 'package:flutter_clean_architecture/pages/main/main_page.dart';
 
-import 'app_localizations.dart';
+import '../../blocs/application/localizations_bloc.dart';
+import '../../pages/main/main_page.dart';
+import '../../core/resources/resources.dart';
 
 class Application extends StatelessWidget {
   @override
